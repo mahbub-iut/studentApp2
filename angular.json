@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "studentApp"
+    }
+  },
+  "defaultProject": "studentApp",
+  "cli": {
+    "analytics": "117e2d1e-37a8-44a7-949d-7a490cc888fd"
+  }
 }

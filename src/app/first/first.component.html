@@ -1,0 +1,199 @@
+<div style="text-align:center">
+    <h1>
+        Welcome to {{title}}!!
+    </h1>
+    <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+            <label class="center-block">First Name:
+                <input class="form-control" formControlName="first_name">
+            </label>
+        </div>
+        <div *ngIf="angForm.controls['first_name'].invalid && (angForm.controls['first_name'].dirty || angForm.controls['first_name'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="angForm.controls['first_name'].errors.required">
+                First name is required.
+            </div>
+        </div>
+        <!-- ########## -->
+        <div class="form-group">
+            <label class="center-block">Last name:
+                <input class="form-control" formControlName="last_name">
+            </label>
+        </div>
+        <div *ngIf="angForm.controls['last_name'].invalid && (angForm.controls['last_name'].dirty || angForm.controls['last_name'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="angForm.controls['last_name'].errors.required">
+                last_name is required.
+            </div>
+        </div>
+        <!-- ########## -->
+        <div class="form-group">
+            <label class="center-block">City:
+                <input class="form-control" formControlName="city">
+            </label>
+        </div>
+        <div *ngIf="angForm.controls['city'].invalid && (angForm.controls['city'].dirty || angForm.controls['city'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="angForm.controls['city'].errors.required">
+                City is required.
+            </div>
+        </div>
+
+        <!-- ########## -->
+        <div class="form-group">
+            <label class="center-block">State:
+                <input class="form-control" formControlName="state">
+            </label>
+        </div>
+        <div *ngIf="angForm.controls['state'].invalid && (angForm.controls['state'].dirty || angForm.controls['state'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="angForm.controls['state'].errors.required">
+                state is required.
+            </div>
+        </div>
+
+        <!-- ########## -->
+        <div class="form-group">
+            <label class="center-block">Zip:
+                <input class="form-control" formControlName="zip">
+            </label>
+        </div>
+        <div *ngIf="angForm.controls['zip'].invalid && (angForm.controls['zip'].dirty || angForm.controls['zip'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="angForm.controls['zip'].errors.required">
+                zip is required.
+            </div>
+        </div>
+        <!-- ########## -->
+        <div class="form-group">
+            <label class="center-block">Tel num:
+                <input class="form-control" formControlName="tel_num" type="text">
+            </label>
+        </div>
+        <div *ngIf="angForm.controls['tel_num'].invalid && (angForm.controls['tel_num'].dirty || angForm.controls['tel_num'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="angForm.controls['tel_num'].errors.required">
+                tel_num is required.
+            </div>
+        </div>
+        <!-- ########## -->
+        <div class="form-group">
+            <label class="center-block">Email:
+                <input class="form-control" formControlName="email" type="text">
+            </label>
+        </div>
+        <div *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="angForm.controls['email'].errors.required">
+                email is required.
+            </div>
+        </div>
+        <!-- ########## -->
+        <div class="form-group">
+            <label class="center-block">Date:
+                <input class="form-control" formControlName="dos" type="text">
+            </label>
+        </div>
+        <div *ngIf="angForm.controls['dos'].invalid && (angForm.controls['dos'].dirty || angForm.controls['dos'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="angForm.controls['dos'].errors.required">
+                date is required.
+            </div>
+        </div>
+        <!-- ########## -->
+        <div class="form-group">
+            <label> Street Address:</label>
+            <input class="form-control" formControlName="address" type="text">
+        </div>
+        <div *ngIf="angForm.controls['address'].invalid && (angForm.controls['address'].dirty || angForm.controls['address'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="angForm.controls['address'].errors.required">
+                address is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="interested">
+                <h3>What made you interested:</h3>
+            </label>
+            <div>
+                <input id="friends" type="radio" value="friends" name="interested" formControlName="interested">
+                <label for="friends">friends</label>
+            </div>
+            <div>
+                <input id="television" type="radio" value="television" name="interested" formControlName="interested">
+                <label for="television">television</label>
+            </div>
+
+            <div>
+                <input id="internet" type="radio" value="internet" name="interested" formControlName="interested">
+                <label for="internet">internet</label>
+            </div>
+
+            <div>
+                <input id="other" type="radio" value="other" name="interested" formControlName="interested">
+                <label for="other">other</label>
+            </div>
+
+            <div *ngIf="f.interested.touched && f.interested.invalid" class="alert alert-danger">
+                <div *ngIf="f.interested.errors.required">option is required.</div>
+            </div>
+        </div>
+
+
+
+        <h3>Likelihood of recommendation:</h3>
+        <div class="form-group">
+            <label for="likelihood">likelihood:</label>
+            <select formControlName="likelihood" class="form-control">
+                <option disabled>Select likelihood</option>
+                <option>Choose likelihood</option>
+                <option *ngFor="let like of likes">{{like}}</option>
+            </select>
+            <div *ngIf="f.likelihood.touched && f.likelihood.invalid" class="alert alert-danger">
+                <div *ngIf="f.likelihood.errors.required">Name is required.</div>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="likings">
+                <h3>Likings</h3>
+            </label>
+            <div *ngFor="let web of websiteList">
+                <label>
+                    <input type="checkbox" [value]="web.name" (change)="onCheckboxChange($event)" />
+                    {{web.name}}
+                </label>
+            </div>
+        </div>
+
+
+        <br>
+        <br>
+
+        <div class="form-group">
+            <button class="btn btn-danger btn-block btn-lg" (click)="submitForm()">Create</button>
+        </div>
+        <br>
+        <br>
+
+        <div class="form-group">
+            <button class="btn btn-danger btn-block btn-lg" (click)="resetForm()">Cancel</button>
+        </div>
+
+
+
+
+    </form>
+    <p>Form value: {{ angForm.value | json }}</p>
+    <p>Form status: {{ angForm.status | json }}</p>
+</div>
+
+
+<!-- <button (click)="getPosts()">get button</button>
+  
+  <div *ngFor="let post of posts |async">
+    <p>user id are {{post.userId|json}} </p>
+  
+  </div> -->

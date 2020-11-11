@@ -1,0 +1,7 @@
+
+<button (click)="getPosts()">get button</button>
+
+<div *ngFor="let post of posts |async">
+  <p>user id are {{post.userId|json}} </p>
+
+</div>
