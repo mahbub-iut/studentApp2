@@ -12,4 +12,4 @@ RUN npm run build --prod
 
 FROM nginx:1.15.8-alpine
 
-COPY --from=builder  https://github.com/mahbub-iut/studentApp2/tree/master/src/app/dist/studentApp/ /usr/share/nginx/html
+COPY --from=builder  https://github.com/mahbub-iut/studentApp2/tree/master/src/app/dist/studentApp2/ /usr/share/nginx/html
