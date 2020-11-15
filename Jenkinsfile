@@ -31,13 +31,13 @@ pipeline{
 		}
 	}
 		
-	stage(' Deploying to GKE as single pod'){
+	/*stage(' Deploying to GKE as single pod'){
 		steps{
 			sh ' kubectl set image  deployment/swe645angular studentangular=gmu645/surveyangular:${BUILD_ID}'
 			
 		}
 
-	}
+	}*/
 		/*
 	stage(' Deploying to GKE as with Load balancer'){
 		steps{
