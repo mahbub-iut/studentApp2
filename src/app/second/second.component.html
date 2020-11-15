@@ -1,7 +1,14 @@
 
-<button (click)="getPosts()">get button</button>
+<button (click)="getPosts()">Get previous forms</button>
 
-<div *ngFor="let post of posts |async">
+<!-- <div *ngFor="let post of posts |async">
   <p>user id are {{post|json}} </p>
 
-</div>
+</div> -->
+<table>
+<tr *ngFor="let post of posts|async">
+  <td>{{post.body}}</td>
+  <td>{{post.id}}</td>
+
+</tr>
+</table>

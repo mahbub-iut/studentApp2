@@ -12,7 +12,8 @@ import { HttpClient } from '@angular/common/http';
 export class FirstComponent  {
 
   title = 'student survey form';
-  readonly ROOT_URL = "https://jsonplaceholder.typicode.com";
+  // readonly ROOT_URL = "https://jsonplaceholder.typicode.com";
+  readonly ROOT_URL = "http://35.223.108.225/surveywebjpa-RestAPI/rest/surveys/new";
   posts: Observable<any[]> | undefined;
   angForm: FormGroup;
   websiteList: any = [
@@ -71,7 +72,7 @@ export class FirstComponent  {
 
     // console.log(this.angForm.value);
     if (this.angForm.valid) {
-      this.http.post(this.ROOT_URL + '/posts', this.angForm.value).subscribe(
+      this.http.post(this.ROOT_URL , this.angForm.value).subscribe(
         (response) => console.log(response),
         (error) => console.log(error)
       )

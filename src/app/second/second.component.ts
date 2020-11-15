@@ -12,64 +12,29 @@ export class SecondComponent {
 
   // title = 'Angular Form Validation Tutorial';
   readonly ROOT_URL = "https://jsonplaceholder.typicode.com";
+
+  // readonly ROOT_URL = "http://35.223.108.225/surveywebjpa-RestAPI/rest/surveys/all/";
+  // readonly proxyurl = "https://cors-anywhere.herokuapp.com/";
   posts: Observable<any[]> | undefined;
   angForm: FormGroup;
-  // websiteList: any = [
-  //   { id: 1, name: 'Students' },
-  //   { id: 2, name: 'Location' },
-  //   { id: 3, name: 'Campus' },
-  //   { id: 4, name: 'Dorm' },
-  //   { id: 5, name: 'Atmsosphere' },
-  //   { id: 6, name: 'Campus' },
-  // ];
 
-  // likes: any = ['Very likely', 'Likely', 'Unlikely'];
 
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     // this.createForm();
   }
-  // createForm() {
-  //   this.angForm = this.fb.group({
-  //     first_name: ['', Validators.required],
-  //     last_name: ['', Validators.required],
-  //     address: ['', Validators.required],
-  //     city: ['', Validators.required],
-  //     state: ['', Validators.required],
-  //     zip: ['', Validators.required],
-  //     tel_num: ['', Validators.required],
-  //     email: ['', Validators.required],
-  //     dos: ['', Validators.required],
-  //     likings: this.fb.array([], [Validators.required]),
-  //     likelihood: new FormControl('', Validators.required),
-  //     interested: new FormControl('', Validators.required)
-  //   });
-  // }
-  // get f() {
-  //   return this.angForm.controls;
-  // }
-  // onCheckboxChange(e) {
-  //   const likes: FormArray = this.angForm.get('likings') as FormArray;
+ 
 
-  //   if (e.target.checked) {
-  //     likes.push(new FormControl(e.target.value));
-  //   } else {
-  //     const index = likes.controls.findIndex(x => x.value === e.target.value);
-  //     likes.removeAt(index);
-  //   }
-  // }
 
 
   getPosts() {
-    this.posts = this.http.get<any[]>(this.ROOT_URL + '/posts');
-    // this.http.get(this.ROOT_URL + '/posts')
-    //   .subscribe((posts: any[]) => {
-    //     this.angForm = this.fb.group({
-    //       capabilities: this.fb.array(posts.map(datum => this.generateDatumFormGroup(datum)))
-    //     });
-    //   });
+    this.posts = this.http.get<any[]>(this.ROOT_URL+'/posts');    //'/posts'
+    // this.http.get(this.proxyurl+this.ROOT_URL).subscribe(
+    //   (response) => console.log(response),
+    //   (error) => console.log(error)
+    // )
   }
-  
+
 
 
 
