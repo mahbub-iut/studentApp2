@@ -13,7 +13,7 @@ pipeline{
 				script{
 					checkout scm
 					sh 'echo ${BUILD_TIMESTAMP}'
-					sh 'docker login  -u gmu645angular --password-stdin < ~/my_password '
+					sh 'docker login  -u gmu645 --password-stdin < ~/my_password '
 					def customimage=docker.build("gmu645/surveyangular:${BUILD_ID}")
 					sh 'pwd'
 
