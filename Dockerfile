@@ -12,6 +12,6 @@ RUN npm install && \
 
 FROM nginx:1.15.8-alpine
 
-COPY --from=builder  /src/app/dist/studentApp2/ /usr/share/nginx/html
+COPY --from=builder  /src/app/studentApp2/ /usr/share/nginx/html
 
 
